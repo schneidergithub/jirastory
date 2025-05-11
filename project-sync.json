@@ -1,0 +1,145 @@
+{
+  "project": {
+    "key": "PMAC",
+    "name": "PMaC Implementation Project",
+    "description": "AI-Powered Scrum Refinement System",
+    "jiraId": "10001",
+    "githubRepo": "schneidergithub/jirastory",
+    "githubProjectId": "12345"
+  },
+  "epics": [
+    {
+      "id": "epic-1",
+      "key": "PMAC-1",
+      "name": "Integration Layer Foundation",
+      "summary": "Core integration with Jira and GitHub",
+      "status": "In Progress",
+      "priority": "High",
+      "githubLabel": "Integration Layer Foundation"
+    },
+    {
+      "id": "epic-2",
+      "key": "PMAC-2",
+      "name": "AI Orchestration Layer",
+      "summary": "AI personas and conversation engine",
+      "status": "To Do",
+      "priority": "High",
+      "githubLabel": "AI Orchestration Layer"
+    },
+    {
+      "id": "epic-3",
+      "key": "PMAC-3",
+      "name": "Human Interface Layer",
+      "summary": "User interface and interaction",
+      "status": "To Do",
+      "priority": "Medium",
+      "githubLabel": "Human Interface Layer"
+    },
+    {
+      "id": "epic-4",
+      "key": "PMAC-4",
+      "name": "DevOps and Infrastructure",
+      "summary": "Deployment and operations",
+      "status": "To Do",
+      "priority": "High",
+      "githubLabel": "DevOps and Infrastructure"
+    },
+    {
+      "id": "epic-5",
+      "key": "PMAC-5",
+      "name": "Integration and Testing",
+      "summary": "End-to-end testing and validation",
+      "status": "To Do",
+      "priority": "Medium",
+      "githubLabel": "Integration and Testing"
+    }
+  ],
+  "sprints": [
+    {
+      "id": "sprint-1",
+      "name": "Sprint 1: Foundation",
+      "goal": "Establish core infrastructure and basic integration with Jira and GitHub",
+      "startDate": "2025-05-12T00:00:00Z",
+      "endDate": "2025-05-26T00:00:00Z",
+      "status": "Active",
+      "githubLabel": "Sprint 1: Foundation"
+    },
+    {
+      "id": "sprint-2",
+      "name": "Sprint 2: Integration Layer Completion",
+      "goal": "Complete bidirectional synchronization and expose API endpoints",
+      "startDate": "2025-05-26T00:00:00Z",
+      "endDate": "2025-06-09T00:00:00Z",
+      "status": "Future",
+      "githubLabel": "Sprint 2: Integration Layer Completion"
+    }
+  ],
+  "stories": [
+    {
+      "id": "story-1",
+      "key": "PMAC-101",
+      "summary": "Basic Jira Story Extraction",
+      "description": "As a development team member, I want to extract user stories from our Jira board, so that they can be processed for refinement.",
+      "acceptanceCriteria": [
+        "Can authenticate with Jira API using secure credentials",
+        "Can extract all stories from a specified sprint",
+        "Can retrieve detailed information for a specific story",
+        "Data retrieval handles pagination for large sprints",
+        "API rate limits are respected with appropriate backoff strategy"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "In Progress",
+      "epicLink": "epic-1",
+      "sprint": "sprint-1",
+      "labels": ["integration", "jira"],
+      "githubIssueNumber": 1
+    },
+    {
+      "id": "story-2",
+      "key": "PMAC-102",
+      "summary": "GitHub Issue Management",
+      "description": "As a development team member, I want to create and update issues in GitHub based on Jira stories, so that refinement can happen in the GitHub environment.",
+      "acceptanceCriteria": [
+        "Can authenticate with GitHub API using secure credentials",
+        "Can create new issues in GitHub with appropriate fields",
+        "Can update existing issues with changed information",
+        "Metadata maintains the link between Jira stories and GitHub issues",
+        "Markdown formatting properly converts Jira formatting to GitHub"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "To Do",
+      "epicLink": "epic-1",
+      "sprint": "sprint-1",
+      "labels": ["integration", "github"],
+      "githubIssueNumber": 2
+    }
+  ],
+  "mappings": {
+    "status": {
+      "todo": {
+        "jira": "To Do",
+        "github": {
+          "state": "open",
+          "labels": []
+        }
+      },
+      "inProgress": {
+        "jira": "In Progress",
+        "github": {
+          "state": "open",
+          "labels": ["in-progress"]
+        }
+      },
+      "done": {
+        "jira": "Done",
+        "github": {
+          "state": "closed",
+          "labels": []
+        }
+      }
+    }
+  },
+  "syncLog": []
+}
