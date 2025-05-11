@@ -62,18 +62,8 @@ jq -c '.epics[]' "$JSON_FILE" | while read -r epic; do
       echo "❌ Epic label missing: $github_label"
     fi
   fi
-}
+done
 
-# Check sprints (as labels or milestones)
-echo "Checking sprints..."
-jq -c '.sprints[]' "$JSON_FILE" | while read -r sprint; do
-  name=$(echo "$sprint" | jq -r '.name')
-  github_label=$(echo "$sprint" | jq -r '.githubLabel')
-  github_milestone_number=$(echo "$sprint" | jq -r '.githubMilestoneNumber')
-  
-  # Check if label exists
-  if [[ -n "$github_label" ]]; then
-    if gh label list --repo "$REPO" --json name | jq -e --arg label "$github_label"
 # Check sprints (as labels or milestones)
 echo "Checking sprints..."
 jq -c '.sprints[]' "$JSON_FILE" | while read -r sprint; do
@@ -98,7 +88,7 @@ jq -c '.sprints[]' "$JSON_FILE" | while read -r sprint; do
       echo "❌ Sprint milestone missing: #$github_milestone_number"
     fi
   fi
-}
+done
 
 # Check stories (as issues)
 echo "Checking stories..."
@@ -150,7 +140,7 @@ jq -c '.stories[]' "$JSON_FILE" | while read -r story; do
   else
     echo "❌ Issue missing: #$github_issue_number - $summary"
   fi
-}
+done
 
 # Check custom labels
 echo "Checking custom labels..."
