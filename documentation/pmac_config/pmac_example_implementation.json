@@ -1,0 +1,289 @@
+{
+  "project": {
+    "key": "AIREF",
+    "name": "AI-Powered Scrum Refinement System",
+    "description": "An AI system for automating Scrum story refinement",
+    "jiraId": "10001",
+    "githubRepo": "schneidergithub/jirastory",
+    "githubProjectId": "12345"
+  },
+  "epics": [
+    {
+      "id": "epic-1",
+      "key": "AIREF-1",
+      "name": "Integration Layer Foundation",
+      "summary": "Core integration with Jira and GitHub",
+      "description": "This epic covers the foundation of our integration layer, connecting Jira and GitHub with bidirectional synchronization.",
+      "status": "In Progress",
+      "priority": "High",
+      "jiraId": "JIRA-123456",
+      "githubMilestoneId": null,
+      "githubLabel": "Integration Layer Foundation"
+    },
+    {
+      "id": "epic-2",
+      "key": "AIREF-2",
+      "name": "AI Orchestration Layer",
+      "summary": "AI personas and conversation engine",
+      "description": "This epic covers the AI orchestration system, including persona management, conversation engine, and decision extraction.",
+      "status": "To Do",
+      "priority": "High",
+      "jiraId": "JIRA-123457",
+      "githubMilestoneId": null,
+      "githubLabel": "AI Orchestration Layer"
+    }
+  ],
+  "sprints": [
+    {
+      "id": "sprint-1",
+      "name": "Sprint 1: Foundation",
+      "goal": "Establish core infrastructure and basic integration with Jira and GitHub",
+      "startDate": "2025-05-12T00:00:00Z",
+      "endDate": "2025-05-26T00:00:00Z",
+      "status": "Active",
+      "jiraId": "JIRA-SPRINT-101",
+      "githubMilestoneId": 1,
+      "githubMilestoneNumber": 1,
+      "githubLabel": "Sprint 1: Foundation"
+    },
+    {
+      "id": "sprint-2",
+      "name": "Sprint 2: Integration Layer Completion",
+      "goal": "Complete bidirectional synchronization and expose API endpoints",
+      "startDate": "2025-05-26T00:00:00Z",
+      "endDate": "2025-06-09T00:00:00Z",
+      "status": "Future",
+      "jiraId": "JIRA-SPRINT-102",
+      "githubMilestoneId": 2,
+      "githubMilestoneNumber": 2,
+      "githubLabel": "Sprint 2: Integration Layer Completion"
+    }
+  ],
+  "stories": [
+    {
+      "id": "story-1",
+      "key": "AIREF-101",
+      "summary": "Basic Jira Story Extraction",
+      "description": "As a development team member, I want to extract user stories from our Jira board, so that they can be processed for refinement.",
+      "acceptanceCriteria": [
+        "Can authenticate with Jira API using secure credentials",
+        "Can extract all stories from a specified sprint",
+        "Can retrieve detailed information for a specific story",
+        "Data retrieval handles pagination for large sprints",
+        "API rate limits are respected with appropriate backoff strategy"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "In Progress",
+      "epicLink": "epic-1",
+      "sprint": "sprint-1",
+      "assignee": "dev1",
+      "labels": ["integration", "jira"],
+      "jiraId": "JIRA-ISSUE-1001",
+      "githubIssueId": 12345678,
+      "githubIssueNumber": 1,
+      "lastUpdated": "2025-05-13T15:30:00Z",
+      "lastSyncedJira": "2025-05-13T15:30:00Z",
+      "lastSyncedGithub": "2025-05-13T15:30:00Z",
+      "tasks": [
+        {
+          "id": "task-1",
+          "summary": "Implement Jira authentication module",
+          "description": "Create a module that can securely authenticate with Jira API using tokens",
+          "status": "Done",
+          "assignee": "dev1",
+          "estimate": "1d",
+          "jiraId": "JIRA-SUBTASK-10001",
+          "githubChecklistItem": "item-1"
+        },
+        {
+          "id": "task-2",
+          "summary": "Implement sprint backlog extraction service",
+          "description": "Create a service that can retrieve all stories from a specified sprint",
+          "status": "In Progress",
+          "assignee": "dev1",
+          "estimate": "1d",
+          "jiraId": "JIRA-SUBTASK-10002",
+          "githubChecklistItem": "item-2"
+        }
+      ]
+    },
+    {
+      "id": "story-2",
+      "key": "AIREF-102",
+      "summary": "GitHub Issue Management",
+      "description": "As a development team member, I want to create and update issues in GitHub based on Jira stories, so that refinement can happen in the GitHub environment.",
+      "acceptanceCriteria": [
+        "Can authenticate with GitHub API using secure credentials",
+        "Can create new issues in GitHub with appropriate fields",
+        "Can update existing issues with changed information",
+        "Metadata maintains the link between Jira stories and GitHub issues",
+        "Markdown formatting properly converts Jira formatting to GitHub"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "To Do",
+      "epicLink": "epic-1",
+      "sprint": "sprint-1",
+      "assignee": "dev2",
+      "labels": ["integration", "github"],
+      "jiraId": "JIRA-ISSUE-1002",
+      "githubIssueId": 12345679,
+      "githubIssueNumber": 2,
+      "lastUpdated": "2025-05-12T10:15:00Z",
+      "lastSyncedJira": "2025-05-12T10:15:00Z",
+      "lastSyncedGithub": "2025-05-12T10:15:00Z",
+      "tasks": [
+        {
+          "id": "task-3",
+          "summary": "Create GitHub authentication module",
+          "description": "Implement secure authentication with GitHub API",
+          "status": "To Do",
+          "assignee": "dev2",
+          "estimate": "0.5d",
+          "jiraId": "JIRA-SUBTASK-10003",
+          "githubChecklistItem": "item-3"
+        }
+      ]
+    }
+  ],
+  "mappings": {
+    "status": {
+      "todo": {
+        "jira": "To Do",
+        "github": {
+          "state": "open",
+          "labels": [],
+          "projectColumn": "To Do"
+        }
+      },
+      "inProgress": {
+        "jira": "In Progress",
+        "github": {
+          "state": "open",
+          "labels": ["in-progress"],
+          "projectColumn": "In Progress"
+        }
+      },
+      "inReview": {
+        "jira": "In Review",
+        "github": {
+          "state": "open",
+          "labels": ["needs-review"],
+          "projectColumn": "In Review"
+        }
+      },
+      "done": {
+        "jira": "Done",
+        "github": {
+          "state": "closed",
+          "labels": [],
+          "projectColumn": "Done"
+        }
+      }
+    },
+    "priority": {
+      "highest": {
+        "jira": "Highest",
+        "github": {
+          "labels": ["priority:highest"]
+        }
+      },
+      "high": {
+        "jira": "High",
+        "github": {
+          "labels": ["priority:high"]
+        }
+      },
+      "medium": {
+        "jira": "Medium",
+        "github": {
+          "labels": ["priority:medium"]
+        }
+      },
+      "low": {
+        "jira": "Low",
+        "github": {
+          "labels": ["priority:low"]
+        }
+      },
+      "lowest": {
+        "jira": "Lowest",
+        "github": {
+          "labels": ["priority:lowest"]
+        }
+      }
+    },
+    "issueTypes": {
+      "story": {
+        "jira": "Story",
+        "github": {
+          "labels": ["story"]
+        }
+      },
+      "bug": {
+        "jira": "Bug",
+        "github": {
+          "labels": ["bug"]
+        }
+      },
+      "task": {
+        "jira": "Task",
+        "github": {
+          "labels": ["task"]
+        }
+      },
+      "epic": {
+        "jira": "Epic",
+        "github": {
+          "labels": ["epic"]
+        }
+      }
+    }
+  },
+  "syncLog": [
+    {
+      "timestamp": "2025-05-12T09:30:00Z",
+      "event": "create",
+      "status": "success",
+      "source": "jira",
+      "target": "github",
+      "itemType": "story",
+      "itemId": "story-1",
+      "message": "Successfully created GitHub issue from Jira story",
+      "details": {
+        "jiraKey": "AIREF-101",
+        "githubIssueNumber": 1
+      }
+    },
+    {
+      "timestamp": "2025-05-12T10:15:00Z",
+      "event": "create",
+      "status": "success",
+      "source": "jira",
+      "target": "github",
+      "itemType": "story",
+      "itemId": "story-2",
+      "message": "Successfully created GitHub issue from Jira story",
+      "details": {
+        "jiraKey": "AIREF-102",
+        "githubIssueNumber": 2
+      }
+    },
+    {
+      "timestamp": "2025-05-13T15:30:00Z",
+      "event": "update",
+      "status": "success",
+      "source": "jira",
+      "target": "github",
+      "itemType": "story",
+      "itemId": "story-1",
+      "message": "Successfully updated GitHub issue from Jira story changes",
+      "details": {
+        "jiraKey": "AIREF-101",
+        "githubIssueNumber": 1,
+        "changes": ["status", "assignee"]
+      }
+    }
+  ]
+}

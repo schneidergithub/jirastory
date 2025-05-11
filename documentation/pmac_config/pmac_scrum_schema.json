@@ -1,0 +1,397 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cross-Platform Scrum Project Mapping",
+  "description": "Schema for mapping Scrum artifacts between Jira and GitHub",
+  "type": "object",
+  "required": ["project", "epics", "sprints", "stories", "mappings"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["key", "name", "description"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Project key (Jira) / Repository name (GitHub)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Project name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Project description"
+        },
+        "jiraId": {
+          "type": "string",
+          "description": "Jira project ID"
+        },
+        "githubRepo": {
+          "type": "string",
+          "description": "GitHub repository in format 'owner/repo'"
+        },
+        "githubProjectId": {
+          "type": "string",
+          "description": "GitHub project ID"
+        }
+      }
+    },
+    "epics": {
+      "type": "array",
+      "description": "Epics (Jira) / Milestones or Labels (GitHub)",
+      "items": {
+        "type": "object",
+        "required": ["id", "key", "name", "summary", "status"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string",
+            "description": "Epic key in Jira (e.g., PROJ-1)"
+          },
+          "name": {
+            "type": "string",
+            "description": "Epic name"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Short summary"
+          },
+          "description": {
+            "type": "string",
+            "description": "Full description"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["To Do", "In Progress", "Done"]
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["Highest", "High", "Medium", "Low", "Lowest"]
+          },
+          "jiraId": {
+            "type": "string",
+            "description": "Jira epic ID"
+          },
+          "githubMilestoneId": {
+            "type": "string",
+            "description": "GitHub milestone ID"
+          },
+          "githubLabel": {
+            "type": "string",
+            "description": "GitHub label representing this epic"
+          }
+        }
+      }
+    },
+    "sprints": {
+      "type": "array",
+      "description": "Sprints (Jira) / Milestones (GitHub)",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "goal", "startDate", "endDate"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Sprint name"
+          },
+          "goal": {
+            "type": "string",
+            "description": "Sprint goal"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "jiraId": {
+            "type": "string",
+            "description": "Jira sprint ID"
+          },
+          "githubMilestoneId": {
+            "type": "integer",
+            "description": "GitHub milestone ID"
+          },
+          "githubMilestoneNumber": {
+            "type": "integer",
+            "description": "GitHub milestone number"
+          },
+          "githubLabel": {
+            "type": "string",
+            "description": "GitHub label representing this sprint"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Future", "Active", "Closed"]
+          }
+        }
+      }
+    },
+    "stories": {
+      "type": "array",
+      "description": "User Stories (Jira) / Issues (GitHub)",
+      "items": {
+        "type": "object",
+        "required": ["id", "key", "summary", "description", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID for this story"
+          },
+          "key": {
+            "type": "string",
+            "description": "Story key in Jira (e.g., PROJ-123)"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Short summary"
+          },
+          "description": {
+            "type": "string",
+            "description": "Full description including user story format"
+          },
+          "acceptanceCriteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "storyPoints": {
+            "type": ["number", "null"]
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["Highest", "High", "Medium", "Low", "Lowest"]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "To Do", 
+              "In Progress", 
+              "In Review", 
+              "Done", 
+              "Blocked",
+              "Selected for Development"
+            ]
+          },
+          "epicLink": {
+            "type": "string",
+            "description": "ID of the parent epic"
+          },
+          "sprint": {
+            "type": "string",
+            "description": "ID of the sprint"
+          },
+          "assignee": {
+            "type": ["string", "null"],
+            "description": "Username of assignee"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "jiraId": {
+            "type": "string",
+            "description": "Jira issue ID"
+          },
+          "githubIssueId": {
+            "type": "integer",
+            "description": "GitHub issue ID"
+          },
+          "githubIssueNumber": {
+            "type": "integer",
+            "description": "GitHub issue number"
+          },
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastSyncedJira": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastSyncedGithub": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tasks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "summary", "status"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["To Do", "In Progress", "Done"]
+                },
+                "assignee": {
+                  "type": ["string", "null"]
+                },
+                "estimate": {
+                  "type": "string"
+                },
+                "jiraId": {
+                  "type": "string"
+                },
+                "githubChecklistItem": {
+                  "type": "string",
+                  "description": "ID or reference to GitHub checklist item"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "mappings": {
+      "type": "object",
+      "description": "Mappings between Jira and GitHub concepts",
+      "properties": {
+        "status": {
+          "type": "object",
+          "description": "Status mappings",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["jira", "github"],
+            "properties": {
+              "jira": {
+                "type": "string",
+                "description": "Jira status"
+              },
+              "github": {
+                "type": "object",
+                "description": "GitHub equivalent",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": ["open", "closed"]
+                  },
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "projectColumn": {
+                    "type": "string",
+                    "description": "GitHub project column name"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "priority": {
+          "type": "object",
+          "description": "Priority mappings",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["jira", "github"],
+            "properties": {
+              "jira": {
+                "type": "string",
+                "description": "Jira priority"
+              },
+              "github": {
+                "type": "object",
+                "properties": {
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "issueTypes": {
+          "type": "object",
+          "description": "Issue type mappings",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["jira", "github"],
+            "properties": {
+              "jira": {
+                "type": "string",
+                "description": "Jira issue type"
+              },
+              "github": {
+                "type": "object",
+                "properties": {
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "syncLog": {
+      "type": "array",
+      "description": "Log of synchronization events",
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "event", "status"],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "event": {
+            "type": "string",
+            "enum": ["create", "update", "delete", "sync", "error"]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["success", "failure", "partial"]
+          },
+          "source": {
+            "type": "string",
+            "enum": ["jira", "github", "manual"]
+          },
+          "target": {
+            "type": "string",
+            "enum": ["jira", "github", "both"]
+          },
+          "itemType": {
+            "type": "string",
+            "enum": ["epic", "sprint", "story", "task"]
+          },
+          "itemId": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}
