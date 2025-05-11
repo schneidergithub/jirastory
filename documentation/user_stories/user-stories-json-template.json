@@ -1,0 +1,421 @@
+{
+  "epics": [
+    {
+      "id": "EPIC-1",
+      "key": "EPIC-1",
+      "name": "Integration Layer Foundation",
+      "summary": "Core integration with Jira and GitHub",
+      "description": "This epic covers the foundation of our integration layer, connecting Jira and GitHub with bidirectional synchronization.",
+      "status": "To Do",
+      "priority": "High"
+    },
+    {
+      "id": "EPIC-2",
+      "key": "EPIC-2",
+      "name": "AI Orchestration Layer",
+      "summary": "AI personas and conversation engine",
+      "description": "This epic covers the AI orchestration system, including persona management, conversation engine, and decision extraction.",
+      "status": "To Do",
+      "priority": "High"
+    },
+    {
+      "id": "EPIC-3",
+      "key": "EPIC-3", 
+      "name": "Human Interface Layer",
+      "summary": "User interface and interaction",
+      "description": "This epic covers the human interface components, including dashboards, review interfaces, and approval workflows.",
+      "status": "To Do",
+      "priority": "Medium"
+    },
+    {
+      "id": "EPIC-4",
+      "key": "EPIC-4",
+      "name": "DevOps and Infrastructure",
+      "summary": "Deployment and operations",
+      "description": "This epic covers the DevOps and infrastructure components, including containerization, CI/CD, monitoring, and security.",
+      "status": "To Do",
+      "priority": "High"
+    },
+    {
+      "id": "EPIC-5",
+      "key": "EPIC-5",
+      "name": "Integration and Testing",
+      "summary": "End-to-end testing and validation",
+      "description": "This epic covers the integration testing, performance testing, and user acceptance testing of the system.",
+      "status": "To Do",
+      "priority": "Medium"
+    }
+  ],
+  "sprints": [
+    {
+      "id": "SPRINT-1",
+      "name": "Sprint 1: Foundation",
+      "goal": "Establish core infrastructure and basic integration with Jira and GitHub",
+      "startDate": "2025-05-12T00:00:00Z",
+      "endDate": "2025-05-26T00:00:00Z"
+    },
+    {
+      "id": "SPRINT-2",
+      "name": "Sprint 2: Integration Layer Completion",
+      "goal": "Complete bidirectional synchronization and expose API endpoints",
+      "startDate": "2025-05-26T00:00:00Z",
+      "endDate": "2025-06-09T00:00:00Z"
+    },
+    {
+      "id": "SPRINT-3",
+      "name": "Sprint 3: AI Foundation",
+      "goal": "Implement AI persona configuration and single persona analysis",
+      "startDate": "2025-06-09T00:00:00Z",
+      "endDate": "2025-06-23T00:00:00Z"
+    },
+    {
+      "id": "SPRINT-4",
+      "name": "Sprint 4: AI Orchestration",
+      "goal": "Implement multi-persona conversation and decision extraction",
+      "startDate": "2025-06-23T00:00:00Z",
+      "endDate": "2025-07-07T00:00:00Z"
+    },
+    {
+      "id": "SPRINT-5",
+      "name": "Sprint 5: Human Interface",
+      "goal": "Implement dashboard, review, and approval workflows",
+      "startDate": "2025-07-07T00:00:00Z",
+      "endDate": "2025-07-21T00:00:00Z"
+    },
+    {
+      "id": "SPRINT-6",
+      "name": "Sprint 6: Integration and QA",
+      "goal": "Comprehensive testing, documentation, and production deployment",
+      "startDate": "2025-07-21T00:00:00Z",
+      "endDate": "2025-08-04T00:00:00Z"
+    }
+  ],
+  "stories": [
+    {
+      "id": "US-1.1",
+      "key": "US-1.1",
+      "summary": "Basic Jira Story Extraction",
+      "description": "As a development team member, I want to extract user stories from our Jira board, so that they can be processed for refinement.",
+      "acceptanceCriteria": [
+        "Can authenticate with Jira API using secure credentials",
+        "Can extract all stories from a specified sprint",
+        "Can retrieve detailed information for a specific story",
+        "Data retrieval handles pagination for large sprints",
+        "API rate limits are respected with appropriate backoff strategy"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "To Do",
+      "epicLink": "EPIC-1",
+      "sprint": "SPRINT-1",
+      "assignee": null,
+      "labels": ["integration", "jira"],
+      "tasks": [
+        {
+          "id": "TASK-1.1.1",
+          "summary": "Implement Jira authentication module",
+          "description": "Create a module that can securely authenticate with Jira API using tokens",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.1.2",
+          "summary": "Implement sprint backlog extraction service",
+          "description": "Create a service that can retrieve all stories from a specified sprint",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.1.3",
+          "summary": "Build story detail retrieval function",
+          "description": "Create a function that can retrieve detailed information for a specific story",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.1.4",
+          "summary": "Add pagination handling for large data sets",
+          "description": "Implement pagination to handle large data sets efficiently",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-1.1.5",
+          "summary": "Implement rate limit handling and backoff strategy",
+          "description": "Add logic to respect API rate limits with appropriate backoff strategy",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-1.1.6",
+          "summary": "Create unit tests for the extraction service",
+          "description": "Write comprehensive tests for the Jira extraction service",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        }
+      ]
+    },
+    {
+      "id": "US-1.2",
+      "key": "US-1.2",
+      "summary": "GitHub Issue Management",
+      "description": "As a development team member, I want to create and update issues in GitHub based on Jira stories, so that refinement can happen in the GitHub environment.",
+      "acceptanceCriteria": [
+        "Can authenticate with GitHub API using secure credentials",
+        "Can create new issues in GitHub with appropriate fields",
+        "Can update existing issues with changed information",
+        "Metadata maintains the link between Jira stories and GitHub issues",
+        "Markdown formatting properly converts Jira formatting to GitHub"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "To Do",
+      "epicLink": "EPIC-1",
+      "sprint": "SPRINT-1",
+      "assignee": null,
+      "labels": ["integration", "github"],
+      "tasks": [
+        {
+          "id": "TASK-1.2.1",
+          "summary": "Create GitHub authentication module",
+          "description": "Implement secure authentication with GitHub API",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-1.2.2",
+          "summary": "Implement issue creation service",
+          "description": "Create a service that can create new issues in GitHub with all required fields",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.2.3",
+          "summary": "Build issue update functionality",
+          "description": "Implement functionality to update existing issues with changed information",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.2.4",
+          "summary": "Design metadata strategy for tracking Jira-GitHub relationships",
+          "description": "Create a system to maintain links between Jira stories and GitHub issues",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-1.2.5",
+          "summary": "Create Jira-to-GitHub markdown converter",
+          "description": "Implement a converter for Jira formatting to GitHub markdown",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.2.6",
+          "summary": "Implement error handling and conflict resolution",
+          "description": "Add robust error handling for GitHub API interactions",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        }
+      ]
+    },
+    {
+      "id": "US-1.4",
+      "key": "US-1.4",
+      "summary": "Data Schema and Storage",
+      "description": "As a system developer, I want to store and manage the state of synchronized items, so that we can track relationships and history between systems.",
+      "acceptanceCriteria": [
+        "Database schema supports all required entity relationships",
+        "Story data model captures all necessary fields from both systems",
+        "Synchronization history is properly recorded",
+        "Database queries are optimized for common access patterns",
+        "Data validation ensures integrity across systems"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "To Do",
+      "epicLink": "EPIC-1",
+      "sprint": "SPRINT-1",
+      "assignee": null,
+      "labels": ["integration", "database"],
+      "tasks": [
+        {
+          "id": "TASK-1.4.1",
+          "summary": "Design and implement database schema",
+          "description": "Create the database schema to support all required entity relationships",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.4.2",
+          "summary": "Create data models for stories and relationships",
+          "description": "Implement data models that capture all necessary fields from both systems",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.4.3",
+          "summary": "Implement data access layer with ORM",
+          "description": "Create a data access layer using SQLAlchemy ORM",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-1.4.4",
+          "summary": "Build data validation and integrity checks",
+          "description": "Implement validation to ensure data integrity across systems",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-1.4.5",
+          "summary": "Create indexes for performance optimization",
+          "description": "Add appropriate indexes to optimize database queries",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        }
+      ]
+    },
+    {
+      "id": "US-4.1",
+      "key": "US-4.1",
+      "summary": "Containerized Deployment",
+      "description": "As a system administrator, I want to deploy the system using containers, so that it can be consistently run in different environments.",
+      "acceptanceCriteria": [
+        "All system components have appropriate Docker configurations",
+        "Docker Compose setup for local development",
+        "Kubernetes configurations for production deployment",
+        "Container health checks and monitoring",
+        "Documentation for container management"
+      ],
+      "storyPoints": 5,
+      "priority": "High",
+      "status": "To Do",
+      "epicLink": "EPIC-4",
+      "sprint": "SPRINT-1",
+      "assignee": null,
+      "labels": ["devops", "deployment"],
+      "tasks": [
+        {
+          "id": "TASK-4.1.1",
+          "summary": "Create Dockerfiles for each component",
+          "description": "Implement Dockerfiles for all system components",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-4.1.2",
+          "summary": "Build Docker Compose configuration",
+          "description": "Create Docker Compose configuration for local development",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-4.1.3",
+          "summary": "Implement Kubernetes deployment manifests",
+          "description": "Create Kubernetes configurations for production deployment",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-4.1.4",
+          "summary": "Configure health checks and readiness probes",
+          "description": "Add health checks and monitoring for all containers",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-4.1.5",
+          "summary": "Create container monitoring configuration",
+          "description": "Implement monitoring for container resources and performance",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        }
+      ]
+    },
+    {
+      "id": "US-2.1",
+      "key": "US-2.1",
+      "summary": "AI Persona Configuration",
+      "description": "As a refinement system administrator, I want to configure AI personas with different roles and expertise, so that they can contribute specialized perspectives to refinement.",
+      "acceptanceCriteria": [
+        "System supports at least 5 distinct persona roles (PO, Dev, QA, Architect, SM)",
+        "Each persona has configurable prompt templates",
+        "Personas can be enabled/disabled as needed",
+        "Configuration changes take effect without system restart",
+        "Default prompts provide effective starting points"
+      ],
+      "storyPoints": 5,
+      "priority": "Medium",
+      "status": "To Do",
+      "epicLink": "EPIC-2",
+      "sprint": "SPRINT-1",
+      "assignee": null,
+      "labels": ["ai", "configuration"],
+      "tasks": [
+        {
+          "id": "TASK-2.1.1",
+          "summary": "Design persona configuration schema",
+          "description": "Create the data model for AI persona configuration",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-2.1.2",
+          "summary": "Implement prompt template management",
+          "description": "Create the system for managing prompt templates",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-2.1.3",
+          "summary": "Create default prompt templates for each persona",
+          "description": "Develop the initial prompt templates for all personas",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "1d"
+        },
+        {
+          "id": "TASK-2.1.4",
+          "summary": "Build configuration API for persona management",
+          "description": "Implement API endpoints for managing personas",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        },
+        {
+          "id": "TASK-2.1.5",
+          "summary": "Implement configuration persistence",
+          "description": "Create the persistence layer for persona configurations",
+          "status": "To Do",
+          "assignee": null,
+          "estimate": "0.5d"
+        }
+      ]
+    }
+  ]
+}
