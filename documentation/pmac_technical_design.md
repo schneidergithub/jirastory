@@ -1,8 +1,8 @@
 # Technical Design Document
 ## AI-Powered Scrum Refinement System
 
-**Document Version:** 1.0.0  
-**Last Updated:** May 11, 2025  
+**Document Version:** 1.0.0
+**Last Updated:** May 11, 2025
 **Classification:** Technical Implementation Specification
 
 ---
